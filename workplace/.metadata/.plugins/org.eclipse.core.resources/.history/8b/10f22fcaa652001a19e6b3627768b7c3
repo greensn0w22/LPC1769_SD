@@ -1,0 +1,44 @@
+/*
+ * mmc.c
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+/**************************************
+ *			INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+#include "spi.h"
+#include "diskio.h"
+#include "LPC176x.h"
+
+/**************************************
+ *		PRIVATE DEFENITION
+ *************************************/
+//envois de commande à la carte SD (0x40 + index)
+#define CMD0		(0x40)
+#define CMD1		(0x41)
+#define CMD8		(0x48)
+#define CMD9		(0x49)
+#define CMD10		(0x4A)
+#define CMD12		(0x4C)
+#define CMD16		(0x50)
+#define CMD17		(0x51)
+#define CMD18		(0x52)
+#define CMD23		(0x57)
+#define CMD55		(0x77)
+#define CMD58		(0x7A)
+/**************************************
+ *		PRIVATE DECLARATION
+ *************************************/
+
+/**************************************
+ *		PRIVATE STRUCTURE
+ *************************************/
+
+/**************************************
+ *		PUBLIC	FUNCTIONS
+ *************************************/
+

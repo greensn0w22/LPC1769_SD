@@ -1,0 +1,26 @@
+19:42:48 **** Incremental Build of configuration Debug for project lpc_chip_175x_6x ****
+make -r all 
+make: Nothing to be done for `all'.
+19:42:48 **** Incremental Build of configuration Debug for project SD_Card ****
+make -r all 
+Building file: ../src/mmc.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DDEBUG -D__CODE_RED -DCORE_M3 -D__USE_LPCOPEN -DCR_INTEGER_PRINTF -DCR_PRINTF_CHAR -D__LPC17XX__ -I"C:\Users\Julien\Desktop\LPC1769_SD\workplace\SD_Card\inc" -I"C:\Users\Julien\Desktop\LPC1769_SD\workplace\lpc_board_nxp_lpcxpresso_1769\inc" -I"C:\Users\Julien\Desktop\LPC1769_SD\workplace\lpc_chip_175x_6x\inc" -O0 -fno-common -g3 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -mcpu=cortex-m3 -mthumb -specs=redlib.specs -MMD -MP -MF"src/mmc.d" -MT"src/mmc.o" -MT"src/mmc.d" -o "src/mmc.o" "../src/mmc.c"
+Finished building: ../src/mmc.c
+ 
+Building target: libSD_Card.a
+Invoking: MCU Archiver
+arm-none-eabi-ar -r  "libSD_Card.a"  ./src/ff.o ./src/ffsystem.o ./src/ffunicode.o ./src/mmc.o ./src/spi.o   
+c:\nxp\MCUXpressoIDE_10.2.1_795\ide\tools\bin\arm-none-eabi-ar.exe: creating libSD_Card.a
+Finished building target: libSD_Card.a
+ 
+make --no-print-directory post-build
+Performing post-build steps
+arm-none-eabi-size "libSD_Card.a" ; # arm-none-eabi-objdump -h -S "libSD_Card.a" >"libSD_Card.lss"
+   text	   data	    bss	    dec	    hex	filename
+  11990	      0	      6	  11996	   2edc	ff.o (ex libSD_Card.a)
+      0	      0	      0	      0	      0	ffsystem.o (ex libSD_Card.a)
+      0	      0	      0	      0	      0	ffunicode.o (ex libSD_Card.a)
+     48	      0	      0	     48	     30	mmc.o (ex libSD_Card.a)
+    700	      0	      1	    701	    2bd	spi.o (ex libSD_Card.a)
+ 

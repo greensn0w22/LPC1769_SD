@@ -1,0 +1,66 @@
+/*
+ * spi.c
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+
+/**************************************
+ *			INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+#include "spi.h"
+#include "LPC176x.h"
+
+/**************************************
+ *		PRIVATE DEFENITION
+ *************************************/
+#define TFE ((SSP1SR&(0x1<<0))>>0)
+#define TNF ((SSP1SR&(0x1<<1))>>1)
+#define RNE ((SSP1SR&(0x1<<2))>>2)
+#define RFF ((SSP1SR&(0x1<<3))>>3)
+#define BSY ((SSP1SR&(0x1<<3))>>3)
+
+/**************************************
+ *		PRIVATE DECLARATION
+ *************************************/
+
+/**************************************
+ *		PRIVATE STRUCTURE
+ *************************************/
+
+/**************************************
+ *		PUBLIC	FUNCTIONS
+ *************************************/
+	bool initSPI(void){
+		__set_PCONP(PCSSP1,1);
+		__set_PCLKSEL(PCLK_SSP1, PCLKDIV_4);
+
+		__set_PINSEL(0,6,2);
+		__set_PINSEL(0,7,2);
+		__set_PINSEL(0,8,2);
+		__set_PINSEL(0,9,2);
+
+		__set_PINMODE(0,6,2);
+		__set_PINMODE(0,7,2);
+		__set_PINMODE(0,8,2);
+		__set_PINMODE(0,9,0);
+
+		__set_PINOD(0,6,0);
+		__set_PINOD(0,7,0);
+		__set_PINOD(0,8,0);
+
+		SSP1CPSR = 60;
+		SSP1CR1 = 0x0107;
+
+
+
+
+
+		return true;
+	}
+/**************************************
+ *		PRIVATE FUNCTIONS
+ *************************************/

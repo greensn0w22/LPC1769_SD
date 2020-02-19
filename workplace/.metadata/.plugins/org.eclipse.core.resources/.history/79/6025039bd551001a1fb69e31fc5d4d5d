@@ -1,0 +1,39 @@
+/*
+===============================================================================
+ Name        : SPItest.c
+ Author      : $(author)
+ Version     :
+ Copyright   : $(copyright)
+ Description : main definition
+===============================================================================
+*/
+
+
+#include "board.h"
+#include "spi.h"
+#include <cr_section_macros.h>
+
+
+int main(void) {
+	CoreInit();
+    volatile static int i = 0 ;
+
+    initSPI();
+
+
+
+
+
+
+    while(1) {
+        i++ ;
+    }
+    return 0 ;
+}
+
+
+static void CoreInit(void){
+    SystemCoreClockUpdate();
+    Board_Init();
+    Board_LED_Set(0, true);
+}

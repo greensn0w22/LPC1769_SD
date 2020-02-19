@@ -1,0 +1,100 @@
+/*
+ * mmc.c
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+/**************************************
+ * 		PRIVATE TYPEDEF
+ *************************************/
+typedef unsigned int	UINT;	/* int must be 16-bit or 32-bit */
+typedef unsigned char	BYTE;	/* char must be 8-bit */
+typedef	unsigned int  	LBA_t;
+/**************************************
+ *			INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+#include "spi.h"
+#include "diskio.h"
+#include "LPC176x.h"
+
+/**************************************
+ *		PRIVATE DEFENITION
+ *************************************/
+//COMMAND SET FOR SD CARDS (0x40 + index) please refer to
+//**http://elm-chan.org/docs/mmc/mmc_e.html#spimode** for
+//more info
+#define CMD0		(0x40)
+#define CMD1		(0x41)
+#define CMD8		(0x48)
+#define CMD9		(0x49)
+#define CMD10		(0x4A)
+#define CMD12		(0x4C)
+#define CMD16		(0x50)
+#define CMD17		(0x51)
+#define CMD18		(0x52)
+#define CMD23		(0x57)
+#define CMD24		(0x58)
+#define CMD55		(0x77)
+#define CMD58		(0x7A)
+
+#define ACMD23		(0x57)		//NEED A CMD55 BEFORE
+#define ACMD41		(0x69)		//NEED A CMD55 BEFORE
+
+
+#define GO_IDLE_STATE 			CMD0 	//Software reset.
+#define SEND_OP_COND			CMD1	//Initiate initialization process.
+#define APP_SEND_OP_COND		ACMD41 	//For only SDC. Initiate initialization process.
+#define SEND_IF_COND			CMD8	//For only SDC V2. Check voltage range.
+#define SEND_CSD				CMD9	//Read CSD register.
+#define SEND_CID				CMD10	//Read CID register.
+#define STOP_TRANSMISSION		CMD12	//Stop to read data.
+#define SET_BLOCKLEN 			CMD16	//Change R/W block size.
+#define READ_SINGLE_BLOCK		CMD17	//Read a block.
+#define READ_MULTIPLE_BLOCK		CMD18	//Read multiple blocks.
+#define	SET_BLOCK_COUNT			CMD23	//For only MMC. Define number of blocks to transfer
+										//with next multi-block read/write command.
+#define SET_WR_BLOCK_ERASE_COUNT ACMD23 //	For only SDC. Define number of blocks to pre-erase
+										//with next multi-block write command.
+#define WRITE_BLOCK				CMD24   //Write a block.
+#define WRITE_MULTIPLE_BLOCK 	CMD25	//Write multiple blocks.
+#define APP_CMD					CMD55	//Leading command of ACMD<n> command.
+#define READ_OCR				CMD58	//Read OCR.
+
+//pdrv possibilities
+#define MMC_CARD 0
+
+/**************************************
+ *		PRIVATE DECLARATION
+ *************************************/
+static bool mmc_init(void);
+/**************************************
+ *		PRIVATE STRUCTURE
+ *************************************/
+
+/**************************************
+ *		PUBLIC	FUNCTIONS
+ *************************************/
+DSTATUS disk_initialize (BYTE pdrv){
+	switch (pdrv) {
+		case MMC_CARD :
+			mmc_init();
+
+			return STA_OK;
+	}
+	return STA_NOINIT;
+}
+
+/**************************************
+ *		PUBLIC	FUNCTIONS
+ *************************************/
+static bool mmc_init(){
+
+
+
+	return true;
+}
+
+

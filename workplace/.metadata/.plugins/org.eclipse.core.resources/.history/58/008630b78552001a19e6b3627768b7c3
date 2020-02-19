@@ -1,0 +1,38 @@
+/*
+ * spi.h
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+#ifndef SPI_H_
+#define SPI_H_
+
+/**************************************
+ *		INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+
+/**************************************
+ *		PUBLIC DEFENITIONS
+ *************************************/
+#define TFE ((SSP1SR&(0x1<<0))>>0)
+#define TNF ((SSP1SR&(0x1<<1))>>1)
+#define RNE ((SSP1SR&(0x1<<2))>>2)
+#define RFF ((SSP1SR&(0x1<<3))>>3)
+#define BSY ((SSP1SR&(0x1<<3))>>3)
+/**************************************
+ * 		SPI FUNCTIONS
+ *************************************/
+
+	bool initSPI(void);
+
+
+
+
+
+
+
+
+#endif /* SPI_H_ */

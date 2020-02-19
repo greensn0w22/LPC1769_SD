@@ -1,0 +1,36 @@
+/*
+ * spi.h
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+#ifndef SPI_H_
+#define SPI_H_
+
+/**************************************
+ *		INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+#include "LPC176x.h"
+
+/**************************************
+ *		PUBLIC DEFENITIONS
+ *************************************/
+#define BSY ((SSP1SR & 0x10)>> 4)
+/**************************************
+ * 		SPI FUNCTIONS
+ *************************************/
+
+	bool spi_init(void);
+
+
+
+
+
+
+
+
+
+#endif /* SPI_H_ */

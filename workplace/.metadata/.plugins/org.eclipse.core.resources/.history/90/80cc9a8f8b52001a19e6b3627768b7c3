@@ -1,0 +1,35 @@
+/*
+ * spi.h
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+#ifndef SPI_H_
+#define SPI_H_
+
+/**************************************
+ *		INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+#include "LPC176x.h"
+
+/**************************************
+ *		PUBLIC DEFENITIONS
+ *************************************/
+#define NOT_HALF_FULL {(SSP1RIS&0x4) == false}
+/**************************************
+ * 		SPI FUNCTIONS
+ *************************************/
+
+	bool initSPI(void);
+
+
+
+
+
+
+
+
+#endif /* SPI_H_ */

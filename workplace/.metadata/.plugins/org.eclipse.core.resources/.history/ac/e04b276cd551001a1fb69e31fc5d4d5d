@@ -1,0 +1,30 @@
+/*
+ * spi.h
+ *
+ *  Created on: 17 févr. 2020
+ *      Author: Julien
+ */
+
+#ifndef SPI_H_
+#define SPI_H_
+
+/**************************************
+ *			INCLUDES
+ *************************************/
+#include <stdint.h>
+#include <stdbool.h>
+
+/**************************************
+ * 			SPI FUNCTIONS
+ *************************************/
+
+	bool test(void);
+
+
+
+
+
+
+
+
+#endif /* SPI_H_ */

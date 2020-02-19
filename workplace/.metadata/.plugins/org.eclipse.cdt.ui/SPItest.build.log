@@ -1,0 +1,6 @@
+17:08:26 **** Incremental Build of configuration Debug for project SPItest ****
+make -r -j8 all 
+make: Nothing to be done for `all'.
+
+17:08:26 Build Finished (took 151ms)
+
